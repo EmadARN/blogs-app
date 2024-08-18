@@ -7,6 +7,8 @@ import Input from "@/components/FormInput";
 import { useFormik } from "formik/dist";
 import { useAuth, useAuthActions } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignup } from "@/redux/user/userAction";
 
 //  initial values
 const initialValues = {
@@ -36,15 +38,18 @@ const validationSchema = Yup.object({
 });
 
 const SignupForm = () => {
-  const dispatch = useAuthActions();
-  const { user, loading } = useAuth();
+  // const dispatch = useAuthActions();
+  // const { user, loading } = useAuth();
+  const dispatch = useDispatch();
+  const { user, loading } = useSelector((state) => state.userSignup);
   const router = useRouter();
   const onSubmit = (values) => {
     const { name, email, phoneNumber, password } = values;
-    dispatch({
-      type: "SIGNUP",
-      payload: { name, email, phoneNumber, password },
-    });
+    // dispatch({
+    //   type: "SIGNUP",
+    //   payload: { name, email, phoneNumber, password },
+    // });
+    dispatch(userSignup({ name, email, phoneNumber, password }));
   };
 
   const formik = useFormik({

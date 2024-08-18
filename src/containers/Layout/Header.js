@@ -1,8 +1,12 @@
 import { useAuth, useAuthActions } from "@/context/AuthContext";
+import { signout } from "@/redux/user/userAction";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
-  const { user, loading } = useAuth();
-  const dispatch = useAuthActions();
+  // const { user, loading } = useAuth();
+  // const dispatch = useAuthActions();
+  const { user, loading } = useSelector((state) => state.userSignin);
+  const dispatch = useDispatch();
   return (
     <header className={`bg-white shadow-md py-2 mb-8 sticky top-0 z-40`}>
       <div
@@ -29,7 +33,7 @@ const Header = () => {
               <>
                 <button
                   className="bg-red-600 px-2 py-1 rounded text-red-100"
-                  onClick={() => dispatch({ type: "SIGNOUT" })}
+                  onClick={() => dispatch(signout())}
                 >
                   خروج
                 </button>

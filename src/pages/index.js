@@ -1,10 +1,11 @@
 import React from "react";
 import { useAuth } from "@/context/AuthContext";
 import Layout from "@/containers/Layout";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const { user } = useAuth();
-
+  // const { user } = useAuth();
+  const { user } = useSelector((state) => state.userSignin);
   return (
     <Layout>
       <div className="container mx-auto lg:max-w-screen-xl">
