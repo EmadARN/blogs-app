@@ -51,7 +51,7 @@ const SigninForm = () => {
   return (
     <Layout>
       <Head>
-        <title>Front Hooks- Signup</title>
+        <title> Signup</title>
       </Head>
       <div className="md:max-w-md px-4 md:px-4 container  mx-auto">
         <form

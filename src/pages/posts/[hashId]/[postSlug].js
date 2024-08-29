@@ -240,6 +240,7 @@ const PostPage = ({ post }) => {
 };
 
 export default PostPage;
+//چ.ن اطلاعات هر کاربر را اینجا دریافت میکنیم بهتر همینجام به کوکی های مرورپر هر شخص دسترسی داشته باشیم
 export async function getServerSideProps(ctx) {
   const { query, req } = ctx;
   const {

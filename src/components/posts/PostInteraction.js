@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 const PostInteraction = ({ post, isSmall, className }) => {
   const iconSize = isSmall ? "h-4 w-4" : "h-6 w-6";
   const numberSize = isSmall ? "text-xs" : "text-base";
-  const router = useRouter();
+  const router = useRouter(); //چون دیتا از سرور میاد و باید اپدیت بشه از این متد استفاده میکنیم
 
   const likeHandler = (postId) => {
     http
